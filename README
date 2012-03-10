@@ -1,0 +1,17 @@
+FATSECRET GEM
+
+Access nutritional information from FatSecret. You need to regester with FatSecret to get
+a key and secret. 
+
+Tell the gem your authenication details:
+
+FatSecret.init(FATSECRET_KEY,FATSECRET_SECRET)
+
+Search for food:
+
+FatSecret.search_food('milk')
+
+Get a particular food if you know its id
+
+FatSecret.food(800)
+
