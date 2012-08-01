@@ -32,7 +32,7 @@ class FatSecret
 	def self.search_food(expression)
 		query = {
 			:method => 'foods.search',
-			:search_expression => expression,
+			:search_expression => expression
 		}
 		get(query)
 	end
