@@ -30,6 +30,14 @@ the food method with the food id:
 
 		FatSecret.food(800)
 
+Search for Recipe:
+
+    FatSecret.search_recipes('chicken',50)
+
+Get a particular recipe if you know its id:
+
+    FatSecret.recipe(84411)
+
 CONTRIBUTIONS
 -------------
 Any contributions to improve this gem are welcomed.

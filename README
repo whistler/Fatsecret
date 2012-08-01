@@ -11,7 +11,15 @@ Search for food:
 
 FatSecret.search_food('milk')
 
-Get a particular food if you know its id
+Get a particular food if you know its id:
 
 FatSecret.food(800)
+
+Search for Recipe:
+
+FatSecret.search_recipes('chicken',50)
+
+Get a particular recipe if you know its id:
+
+FatSecret.recipe(84411)
 
