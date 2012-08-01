@@ -22,12 +22,17 @@ class FatSecret
 	def self.init(key, secret)
 		@@key = key
 		@@secret = secret
-	end
+  end
+
+
+  #--------------------------------
+  #---   Food Functionality
+  #--------------------------------
 
 	def self.search_food(expression)
 		query = {
 			:method => 'foods.search',
-			:search_expression => expression
+			:search_expression => expression,
 		}
 		get(query)
 	end
@@ -38,7 +43,30 @@ class FatSecret
 			:food_id => id
 		}
 		get(query)
-	end
+  end
+
+  #--------------------------------
+  #---   Recipe Functionality
+  #--------------------------------
+
+  def self.search_recipes(expression,max_results=20)
+    query = {
+        :method => 'recipes.search',
+        :search_expression => expression,
+        :max_results => max_results
+    }
+    get(query)
+  end
+
+  def self.recipe(id)
+    query = {
+        :method => 'recipe.get',
+        :recipe_id => id
+    }
+    get(query)
+  end
+
+
 
 	private 
 
