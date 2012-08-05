@@ -10,8 +10,10 @@ however FatSecret provides much more then that, which has not been implemented i
 Installation
 ------------
 If you are using bundler, you put this in your Gemfile:
-		source :rubygems
-		gem 'fatsecret-api'
+
+    source :rubygems
+    gem 'fatsecret-api'
+    
 Then run bundle install
 
 Useage
@@ -19,16 +21,16 @@ Useage
 
 To use it tell the gem your authentication details:
 
-		FatSecret.init(FATSECRET_KEY,FATSECRET_SECRET)
+    FatSecret.init(FATSECRET_KEY,FATSECRET_SECRET)
 
 Search for food, use the following:
 
-		FatSecret.search_food('milk')
+    FatSecret.search_food('milk')
 
 To get nutritional information for food you found through food search, you have to provide
 the food method with the food id:
 
-		FatSecret.food(800)
+    FatSecret.food(800)
 
 Search for Recipe:
 
@@ -40,4 +42,4 @@ Get a particular recipe if you know its id:
 
 CONTRIBUTIONS
 -------------
-Any contributions to improve this gem are welcomed.
+Any contributions to improve this gem are welcome.
