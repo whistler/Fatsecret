@@ -21,6 +21,7 @@ Useage
 
 To use it tell the gem your authentication details:
 
+    require 'fatsecret'
     FatSecret.init(FATSECRET_KEY,FATSECRET_SECRET)
 
 Search for food, use the following:
