@@ -22,6 +22,7 @@ class FatSecret
 	def self.init(key, secret)
 		@@key = key
 		@@secret = secret
+		return nil  #don't return the secret key
   end
 
 
@@ -52,7 +53,7 @@ class FatSecret
   def self.search_recipes(expression,max_results=20)
     query = {
         :method => 'recipes.search',
-        :search_expression => expression,
+        :search_expression => expression.esc,
         :max_results => max_results
     }
     get(query)
