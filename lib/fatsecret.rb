@@ -75,7 +75,7 @@ class FatSecret
 	  params = {
 	  	:format => 'json',
 	    :oauth_consumer_key => @@key, 
-	    :oauth_nonce => "1234", 
+	    :oauth_nonce => SecureRandom.hex, 
 	    :oauth_signature_method => SHA1, 
 	    :oauth_timestamp => Time.now.to_i, 
 	    :oauth_version => "1.0", 
