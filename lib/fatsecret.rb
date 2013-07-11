@@ -30,10 +30,12 @@ class FatSecret
   #---   Food Functionality
   #--------------------------------
 
-	def self.search_food(expression)
+	def self.search_food(expression,page=0,max_results=20)
 		query = {
 			:method => 'foods.search',
-			:search_expression => expression.esc
+			:search_expression => expression.esc,
+			:page => page,
+	        :max_results => max_results
 		}
 		get(query)
 	end
