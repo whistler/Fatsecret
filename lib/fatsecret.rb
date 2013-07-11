@@ -30,6 +30,14 @@ class FatSecret
   #---   Food Functionality
   #--------------------------------
 
+  	def self.autocomplete_food(expression)
+		query = {
+			:method => 'foods.autocomplete',
+			:search_expression => expression.esc
+		}
+		get(query)
+	end
+
 	def self.search_food(expression)
 		query = {
 			:method => 'foods.search',
