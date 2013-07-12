@@ -30,6 +30,14 @@ class FatSecret
   #---   Food Functionality
   #--------------------------------
 
+	def self.food_id_for_barcode(barcode)
+		query = {
+			:method => 'food.find_id_for_barcode',
+			:barcode => barcode
+		}
+		get(query)
+	end
+
 	def self.search_food(expression)
 		query = {
 			:method => 'foods.search',
