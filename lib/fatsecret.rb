@@ -86,6 +86,17 @@ class FatSecret
     get(query)
   end
 
+  #--------------------------------
+  #---   Exercise Functionality
+  #--------------------------------
+
+  def self.get_exercises
+    query = {
+        :method => 'exercises.get',
+    }
+    get(query)
+  end
+
 
 
   private 
