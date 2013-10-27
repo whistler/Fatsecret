@@ -3,6 +3,7 @@ require 'json'
 require 'openssl'
 require 'cgi'
 require 'base64'
+require 'securerandom'
 
 class String 
 	  def esc 
