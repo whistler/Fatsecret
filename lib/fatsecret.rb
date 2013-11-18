@@ -48,13 +48,13 @@ class FatSecret
       results = JSON.parse(Net::HTTP.get(uri))
     end
     
-    def self.base_string(http_method, param_pairs) 
+    def self.base_string(http_method, param_pairs)
       param_str = param_pairs.collect{|pair| "#{pair.first}=#{pair.last}"}.join('&')
       list = [http_method.esc, SITE.esc, param_str.esc]
       list.join('&')
     end
     
-    def self.http_params(method, args) 
+    def self.http_params(method, args)
       pairs = args.sort {|a, b| a.first.to_s <=> b.first.to_s}
       list = []
       pairs.inject(list) {|arr, pair| arr << "#{pair.first.to_s}=#{pair.last}"}
