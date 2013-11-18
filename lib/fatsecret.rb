@@ -8,11 +8,15 @@ require 'string'
 class FatSecret
   
   require 'fatsecret/exercise'
+  require 'fatsecret/exercise_entry'
   require 'fatsecret/food'
+  require 'fatsecret/profile'
   require 'fatsecret/recipe'
   
   include FatSecret::Exercise
+  include FatSecret::ExerciseEntry
   include FatSecret::Food
+  include FatSecret::Profile
   include FatSecret::Recipe
   
   @@key    = ""
@@ -45,6 +49,7 @@ class FatSecret
       http_params = http_params("GET", params)
       sig = sign(base).esc
       uri = uri_for(http_params, sig)
+      puts uri
       results = JSON.parse(Net::HTTP.get(uri))
     end
     
@@ -63,7 +68,7 @@ class FatSecret
     
     def self.sign(base, token='')
       secret_token = "#{@@secret.esc}&#{token.esc}"
-      base64 = Base64.encode64(OpenSSL::HMAC.digest(DIGEST, secret_token, base)).gsub(/\n/, '')
+      base64 = Base64.encode64(OpenSSL::HMAC.digest(DIGEST, secret_token, base)).chomp.gsub(/\n/, '')
     end
     
     def self.uri_for(params, signature)
