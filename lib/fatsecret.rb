@@ -19,17 +19,17 @@ class FatSecret
   include FatSecret::Profile
   include FatSecret::Recipe
   
-  @@key    = ""
-  @@secret = ""
+  @@key    = ''
+  @@secret = ''
   
-  SHA1   = "HMAC-SHA1"
-  SITE   = "http://platform.fatsecret.com/rest/server.api"
+  SHA1   = 'HMAC-SHA1'
+  SITE   = 'http://platform.fatsecret.com/rest/server.api'
   DIGEST = OpenSSL::Digest::Digest.new('sha1')
   
   def self.init(key, secret)
     @@key = key
     @@secret = secret
-    return nil # don't return the secret key
+    return self
   end
   
   private
@@ -41,15 +41,14 @@ class FatSecret
         :oauth_nonce => SecureRandom.hex,
         :oauth_signature_method => SHA1,
         :oauth_timestamp => Time.now.to_i,
-        :oauth_version => "1.0",
+        :oauth_version => '1.0',
       } 
       params.merge!(query)
       sorted_params = params.sort {|a, b| a.first.to_s <=> b.first.to_s}
-      base = base_string("GET", sorted_params)
-      http_params = http_params("GET", params)
+      base = base_string('GET', sorted_params)
+      http_params = http_params('GET', params)
       sig = sign(base).esc
       uri = uri_for(http_params, sig)
-      puts uri
       results = JSON.parse(Net::HTTP.get(uri))
     end
     
