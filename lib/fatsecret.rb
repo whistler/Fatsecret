@@ -12,12 +12,16 @@ class FatSecret
   require 'fatsecret/food'
   require 'fatsecret/profile'
   require 'fatsecret/recipe'
+  require 'fatsecret/recipe_type'
+  require 'fatsecret/weight'
   
   include FatSecret::Exercise
   include FatSecret::ExerciseEntry
   include FatSecret::Food
   include FatSecret::Profile
   include FatSecret::Recipe
+  include FatSecret::RecipeType
+  include FatSecret::Weight
   
   @@key    = ''
   @@secret = ''

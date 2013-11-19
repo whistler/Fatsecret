@@ -7,7 +7,7 @@ class FatSecret
     
     module ClassMethods
       
-      def search_recipes(expression,max_results=20)
+      def search_recipes(expression, max_results=20)
         query = {
           :method => 'recipes.search',
           :search_expression => expression.esc,
