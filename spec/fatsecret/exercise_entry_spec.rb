@@ -12,7 +12,7 @@ describe FatSecret do
     end
     
     it 'requests the correct resource' do
-      client.get_exercise_entries('2e0324082acb4979950a8e8071f33c7a')
+      client.get_exercise_entries('2e0324082acb4979950a8e8071f33c7a', '2e0324082acb4979950a8e8071f33c7a')
       a_get('exercise_entries.get').
         should have_been_made
     end
