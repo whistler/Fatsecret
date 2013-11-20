@@ -48,10 +48,11 @@ class FatSecret
         :oauth_version => '1.0',
       } 
       params.merge!(query)
+      secret = params.delete(:oauth_secret) || ''
       sorted_params = params.sort {|a, b| a.first.to_s <=> b.first.to_s}
       base = base_string('GET', sorted_params)
       http_params = http_params('GET', params)
-      sig = sign(base).esc
+      sig = sign(base, secret).esc
       uri = uri_for(http_params, sig)
       results = JSON.parse(Net::HTTP.get(uri))
     end
