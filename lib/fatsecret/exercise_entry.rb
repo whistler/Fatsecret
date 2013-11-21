@@ -15,6 +15,15 @@ class FatSecret
         }
         get(query)
       end
+
+      def edit_exercise_entry(oauth_token, oauth_secret, options={})
+        query = {
+          :method => 'exercise_entry.edit',
+          :oauth_token => oauth_token,
+          :oauth_secret => oauth_secret
+        }
+        get(query.merge(options))
+      end
       
     end
     
