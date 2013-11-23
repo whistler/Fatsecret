@@ -1,2 +1,7 @@
 *.gem
 keys.txt
+.bundle
+Gemfile.lock
+pkg/*
+coverage/*
+.DS_STORE
