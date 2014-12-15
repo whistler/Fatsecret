@@ -29,7 +29,8 @@ class FatSecret
           :method => 'foods.search',
           :search_expression => expression.esc,
           :page_number => page_number,
-          :max_results => max_results
+          :max_results => max_results,
+          :region => 'uk'
         }
         get(query)
       end
@@ -37,7 +38,8 @@ class FatSecret
       def food(id)
         query = {
           :method => 'food.get',
-          :food_id => id
+          :food_id => id,
+          :region => 'uk'
         }
         get(query)
       end
