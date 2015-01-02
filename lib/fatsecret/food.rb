@@ -30,7 +30,7 @@ class FatSecret
           :search_expression => expression.esc,
           :page_number => page_number,
           :max_results => max_results,
-          # :region => 'GB'
+          :region => 'GB'
         }
         get(query)
       end
@@ -39,7 +39,7 @@ class FatSecret
         query = {
           :method => 'food.get',
           :food_id => id,
-          # :region => 'GB'
+          :region => 'GB'
         }
         get(query)
       end
