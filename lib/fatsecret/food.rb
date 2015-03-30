@@ -39,7 +39,8 @@ class FatSecret
         query = {
           :method => 'food.get',
           :food_id => id,
-          :region => 'GB'
+          :region => 'GB',
+          :flag_default_serving => true
         }
         get(query)
       end
