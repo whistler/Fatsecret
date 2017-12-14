@@ -1,12 +1,12 @@
 class FatSecret
   module Food
-    
+
     def self.included(base)
       base.extend(ClassMethods)
     end
-    
+
     module ClassMethods
-      
+
       def autocomplete_food(expression, max_results=4)
         query = {
           :method => 'foods.autocomplete',
@@ -15,15 +15,16 @@ class FatSecret
         }
         get(query)
       end
-      
+
       def food_id_for_barcode(barcode)
         query = {
           :method => 'food.find_id_for_barcode',
-          :barcode => barcode
+          :barcode => barcode,
+          :region => 'GB'
         }
         get(query)
       end
-      
+
       def search_food(expression, page_number=0, max_results=20)
         query = {
           :method => 'foods.search',
@@ -34,7 +35,7 @@ class FatSecret
         }
         get(query)
       end
-      
+
       def food(id)
         query = {
           :method => 'food.get',
@@ -44,8 +45,8 @@ class FatSecret
         }
         get(query)
       end
-      
+
     end
-    
+
   end
 end
