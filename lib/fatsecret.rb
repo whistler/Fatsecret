@@ -29,7 +29,7 @@ class FatSecret
   
   SHA1   = 'HMAC-SHA1'
   SITE   = 'http://platform.fatsecret.com/rest/server.api'
-  DIGEST = OpenSSL::Digest::Digest.new('sha1')
+  DIGEST = OpenSSL::Digest::SHA1.new
   
   def self.init(key, secret)
     @@key = key
